@@ -10,8 +10,8 @@ class Iterator:
         self.step = step
         if self.step == 0:
             raise StepValueError()
-        #elif self.star > self.start and step > 0:
-         #   raise StepValueError()
+        elif self.start > self.stop and step > 0:
+            raise StepValueError()
 
     def __iter__(self):
         self.pointer = 0
@@ -21,8 +21,6 @@ class Iterator:
     def __next__(self):
         self.pointer += self.step
         if self.pointer == self.stop:
-            raise StopIteration()
-        elif self.pointer == self.stop:
             raise StopIteration()
         return self.pointer            
         
@@ -36,3 +34,4 @@ try:
         print(i, end=' ')
 except StepValueError:
     print('Шаг указан неверно')
+    
